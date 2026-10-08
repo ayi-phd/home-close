@@ -1,0 +1,108 @@
+/*
+ * Design tokens from design/home-close-prototype.html.
+ * Light palette on :root; dark palette follows the OS unless data-theme="light" is set,
+ * and data-theme="dark" forces it. Components reference these tokens only.
+ */
+:root {
+  --bg: #f2f5fa;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --line: #e0e6ef;
+  --line-2: #cbd5e3;
+  --fg: #0d1d3a;
+  --muted: #5a6a84;
+  --faint: #8a98ae;
+  --navy: #0a1f44;
+  --navy-2: #13295a;
+  --navy-fg: #e7edf8;
+  --navy-muted: #9aaac8;
+  --navy-hover: rgba(255, 255, 255, 0.06);
+  --navy-raised: rgba(255, 255, 255, 0.04);
+  --navy-border: rgba(255, 255, 255, 0.08);
+  --navy-track: rgba(255, 255, 255, 0.1);
+  --navy-negative: #ff9c95;
+  --primary: #1c5cf0;
+  --primary-hover: #174cc8;
+  --primary-soft: #e8eefe;
+  --on-primary: #ffffff;
+  --lime: #b9f04a;
+  --on-lime: #0a1f44;
+  --on-logo: #ffffff;
+  --good: #11935f;
+  --good-soft: #e3f6ee;
+  --warn: #b26b00;
+  --warn-soft: #fff3dc;
+  --bad: #c9302c;
+  --bad-soft: #fde9e8;
+  --info: #5b4bd8;
+  --info-soft: #eeebfd;
+  --shadow: 0 1px 2px rgba(13, 29, 58, 0.06), 0 4px 16px rgba(13, 29, 58, 0.06);
+  --overlay: rgba(8, 18, 38, 0.45);
+  --f-display: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --f-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+  --r: 10px;
+  --r-sm: 7px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0a1325;
+    --surface: #101c33;
+    --surface-2: #14223d;
+    --line: #21324f;
+    --line-2: #2d4166;
+    --fg: #e5ecf7;
+    --muted: #97a7c2;
+    --faint: #6e7f9c;
+    --navy: #060e20;
+    --navy-2: #0f1e3e;
+    --navy-fg: #e5ecf7;
+    --navy-muted: #8697b6;
+    --primary: #5b8cff;
+    --primary-hover: #7aa2ff;
+    --primary-soft: #172a52;
+    --on-primary: #06112a;
+    --good: #3ccb8d;
+    --good-soft: #0f3428;
+    --warn: #f2b04a;
+    --warn-soft: #3a2a0e;
+    --bad: #ff7a72;
+    --bad-soft: #3d1a1a;
+    --info: #a79bff;
+    --info-soft: #241e4d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25);
+    --overlay: rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0a1325;
+  --surface: #101c33;
+  --surface-2: #14223d;
+  --line: #21324f;
+  --line-2: #2d4166;
+  --fg: #e5ecf7;
+  --muted: #97a7c2;
+  --faint: #6e7f9c;
+  --navy: #060e20;
+  --navy-2: #0f1e3e;
+  --navy-fg: #e5ecf7;
+  --navy-muted: #8697b6;
+  --primary: #5b8cff;
+  --primary-hover: #7aa2ff;
+  --primary-soft: #172a52;
+  --on-primary: #06112a;
+  --good: #3ccb8d;
+  --good-soft: #0f3428;
+  --warn: #f2b04a;
+  --warn-soft: #3a2a0e;
+  --bad: #ff7a72;
+  --bad-soft: #3d1a1a;
+  --info: #a79bff;
+  --info-soft: #241e4d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.25);
+  --overlay: rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
