@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { useTestApi } from '../test/api.ts';
 import { clearDatabase } from './seed.ts';
 
-useTestApi();
+const { api } = useTestApi();
 
 async function snapshot() {
   const db = mongoose.connection.db!;
@@ -27,5 +27,19 @@ describe('clearDatabase', () => {
     expect(after.names).toEqual(before.names);
     expect(after.indexes).toEqual(before.indexes);
     expect(Object.values(after.counts).every((n) => n === 0)).toBe(true);
+  });
+
+  it('keeps household records when asked, and the API still signs in to an empty household', async () => {
+    const deleted = await clearDatabase({ keepHousehold: true });
+    expect(deleted).not.toHaveProperty('households');
+    expect(deleted.accounts).toBe(3);
+
+    const after = await snapshot();
+    expect(after.counts.households).toBe(1);
+    expect(Object.entries(after.counts).filter(([name]) => name !== 'households').every(([, n]) => n === 0)).toBe(true);
+
+    const res = await api().get('/api/v1/accounts').expect(200);
+    expect(res.body).toEqual([]);
+    expect((await api().get('/api/v1/session').expect(200)).body.household.name).toBe('Rivera Household');
   });
 });

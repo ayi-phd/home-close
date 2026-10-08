@@ -13,10 +13,12 @@ const MODELS = [Household, AccountModel, BillModel, CloseItemModel, ClosePeriodM
 
 /**
  * Deletes every document from the app's collections. Collections and their indexes stay in place;
- * nothing is dropped. Returns the number of documents deleted per collection.
+ * nothing is dropped. With `keepHousehold`, household records are kept so the (stub) session
+ * still signs in to an empty household. Returns the number of documents deleted per collection.
  */
-export async function clearDatabase(): Promise<Record<string, number>> {
-  const results = await Promise.all(MODELS.map(async (m) => [m.collection.collectionName, (await m.collection.deleteMany({})).deletedCount] as const));
+export async function clearDatabase({ keepHousehold = false }: { keepHousehold?: boolean } = {}): Promise<Record<string, number>> {
+  const models = keepHousehold ? MODELS.filter((m) => m !== Household) : MODELS;
+  const results = await Promise.all(models.map(async (m) => [m.collection.collectionName, (await m.collection.deleteMany({})).deletedCount] as const));
   return Object.fromEntries(results);
 }
 
