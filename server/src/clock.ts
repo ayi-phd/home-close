@@ -1,4 +1,4 @@
-import type { IsoDate } from './types.ts';
+import type { IsoDate } from '@home-close/shared';
 
 export type Clock = () => IsoDate;
 

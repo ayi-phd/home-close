@@ -1,6 +1,6 @@
 import { notFound, validationError } from '../errors.ts';
 import { TransactionModel } from '../models/transaction.ts';
-import type { NewTransactionInput, Period, Transaction } from '../types.ts';
+import type { NewTransactionInput, Period, Transaction } from '@home-close/shared';
 import type { Ctx } from './context.ts';
 import { periodEnd, periodStart } from './domain/dates.ts';
 import { toTransaction, type StoredTransaction } from './mappers.ts';

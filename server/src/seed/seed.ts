@@ -7,7 +7,7 @@ import { ClosePeriodModel } from '../models/closePeriod.ts';
 import { Household } from '../models/household.ts';
 import { ReconciliationModel } from '../models/reconciliation.ts';
 import { TransactionModel } from '../models/transaction.ts';
-import { createFixtures, type FixtureData } from './fixtures.ts';
+import { createSampleData, type SampleData } from '@home-close/shared';
 
 const MODELS = [Household, AccountModel, BillModel, CloseItemModel, ClosePeriodModel, TransactionModel, ReconciliationModel];
 
@@ -21,7 +21,7 @@ export interface SeedResult {
   ids: Record<string, string>;
 }
 
-export async function seedDatabase(data: FixtureData = createFixtures()): Promise<SeedResult> {
+export async function seedDatabase(data: SampleData = createSampleData()): Promise<SeedResult> {
   await clearDatabase();
   const ids = new Map<string, Types.ObjectId>();
   const id = (key: string) => {

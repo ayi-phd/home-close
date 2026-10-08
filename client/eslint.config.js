@@ -12,6 +12,7 @@ export default tseslint.config(
     plugins: { 'react-hooks': reactHooks },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
       'no-restricted-imports': [
         'error',
         { paths: [{ name: 'react-router-dom', message: 'Import from react-router (v7) instead.' }] },

@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { createFixtures } from '../../seed/fixtures.ts';
-import type { Reconciliation } from '../../types.ts';
+import { createSampleData } from '../sample.ts';
+import type { Reconciliation } from '../types.ts';
 import { applyPayment, applySchedule, applyStatement, buildItems, computeProgress, generateItem } from './close.ts';
 
-const { bills, items } = createFixtures();
+const { bills, items } = createSampleData();
 const bill = (id: string) => bills.find((b) => b.id === id)!;
 
 const rec = (status: Reconciliation['status']): Reconciliation => ({

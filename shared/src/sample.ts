@@ -1,9 +1,9 @@
 /**
  * Sample household from design/home-close-prototype.html (example figures, not real data).
  * Stored records only: balances, reconciliation summaries and November's checklist are derived.
- * Ids here are fixture keys; the seed maps them to ObjectIds.
+ * Ids are fixture keys: the client mock uses them as-is; the server seed maps them to ObjectIds.
  */
-import type { Account, Bill, CloseItem, IsoDate, Period, Reconciliation, Session, Transaction } from '../types.ts';
+import type { Account, Bill, CloseItem, IsoDate, Period, Reconciliation, Session, Transaction } from './types.ts';
 
 export type StoredAccount = Omit<Account, 'balances' | 'lastReconciled'>;
 export type StoredReconciliation = Omit<Reconciliation, 'summary'>;
@@ -15,7 +15,7 @@ export interface StoredPeriod {
   closedBy: string | null;
 }
 
-export interface FixtureData {
+export interface SampleData {
   session: Session;
   accounts: StoredAccount[];
   bills: Bill[];
@@ -53,7 +53,7 @@ const tx = (id: string, date: IsoDate, description: string, category: string, ki
   id, date, description, category, kind, accountId, amount, cleared, billId, billPeriod: billId ? '2026-10' : null,
 });
 
-export function createFixtures(): FixtureData {
+export function createSampleData(): SampleData {
   return {
     session: {
       user: { firstName: 'Alex', lastName: 'Rivera', email: 'alex.rivera@example.com' },

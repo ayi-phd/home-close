@@ -1,6 +1,6 @@
 /** Converts stored documents (lean) into the API's wire shapes. */
 import type { Types } from 'mongoose';
-import type { Account, Bill, CloseItem, Reconciliation, Transaction } from '../types.ts';
+import type { Account, Bill, CloseItem, Reconciliation, Transaction } from '@home-close/shared';
 import { bookBalance, clearedBalance, summarize } from './domain/reconciliation.ts';
 
 type Id = { _id: Types.ObjectId };

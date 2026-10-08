@@ -2,6 +2,7 @@
   "name": "home-close",
   "private": true,
   "workspaces": [
+    "shared",
     "client",
     "server"
   ],
