@@ -11,6 +11,7 @@
     "dev:server": "npm run dev -w server",
     "build": "npm run build --workspaces --if-present",
     "seed": "npm run seed -w server",
+    "db:clear": "npm run db:clear -w server",
     "db:up": "docker compose up -d mongo",
     "db:down": "docker compose down",
     "lint": "npm run lint --workspaces --if-present",

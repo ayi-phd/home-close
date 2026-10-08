@@ -11,8 +11,13 @@ import { createSampleData, type SampleData } from '@home-close/shared';
 
 const MODELS = [Household, AccountModel, BillModel, CloseItemModel, ClosePeriodModel, TransactionModel, ReconciliationModel];
 
-export async function clearDatabase() {
-  await Promise.all(MODELS.map((m) => m.collection.deleteMany({})));
+/**
+ * Deletes every document from the app's collections. Collections and their indexes stay in place;
+ * nothing is dropped. Returns the number of documents deleted per collection.
+ */
+export async function clearDatabase(): Promise<Record<string, number>> {
+  const results = await Promise.all(MODELS.map(async (m) => [m.collection.collectionName, (await m.collection.deleteMany({})).deletedCount] as const));
+  return Object.fromEntries(results);
 }
 
 export interface SeedResult {

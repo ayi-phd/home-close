@@ -11,6 +11,7 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
     "seed": "node --conditions=source --env-file-if-exists=../.env src/seed/run.ts",
+    "db:clear": "node --conditions=source --env-file-if-exists=../.env src/seed/clear.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
