@@ -2,8 +2,8 @@
  * Account reconciliation: difference = bank balance − (opening balance + cleared transactions).
  * Sign-off is allowed only when the difference is exactly 0.
  */
-import type { Account, Cents, Period, ReconciliationSummary, Transaction } from '../../types';
-import { periodEnd, periodStart } from '../../dates';
+import type { Account, Cents, Period, ReconciliationSummary, Transaction } from '../types.ts';
+import { periodEnd, periodStart } from '../dates.ts';
 
 type Tx = Pick<Transaction, 'accountId' | 'date' | 'amount' | 'cleared'>;
 

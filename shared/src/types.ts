@@ -1,6 +1,5 @@
 /**
- * Wire shapes of the Home Close REST API (`/api/v1`). Kept identical to client/src/api/types.ts;
- * move both to a shared/ workspace when the client switches from its mock to this API.
+ * Wire shapes of the Home Close REST API (`/api/v1`), shared by the client and the server.
  * Money is integer cents. Dates are ISO `YYYY-MM-DD`. A close period is `YYYY-MM`.
  */
 

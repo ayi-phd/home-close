@@ -1,5 +1,5 @@
 import type { Types } from 'mongoose';
-import type { IsoDate } from '../types.ts';
+import type { IsoDate } from '@home-close/shared';
 
 /** Who is asking and when: built per request from the session and the clock. */
 export interface Ctx {

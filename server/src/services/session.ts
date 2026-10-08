@@ -1,6 +1,6 @@
 /** Session endpoints for v0: sign-in and sign-up are UI-only and act on the stub household. */
 import { Household } from '../models/household.ts';
-import type { IsoDate, Session, SignupInput } from '../types.ts';
+import type { IsoDate, Session, SignupInput } from '@home-close/shared';
 import { periodOf } from './domain/dates.ts';
 import type { SessionInfo } from '../middleware/session.ts';
 import { unauthenticated } from '../errors.ts';

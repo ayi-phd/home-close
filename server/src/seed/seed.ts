@@ -7,12 +7,19 @@ import { ClosePeriodModel } from '../models/closePeriod.ts';
 import { Household } from '../models/household.ts';
 import { ReconciliationModel } from '../models/reconciliation.ts';
 import { TransactionModel } from '../models/transaction.ts';
-import { createFixtures, type FixtureData } from './fixtures.ts';
+import { createSampleData, type SampleData } from '@home-close/shared';
 
 const MODELS = [Household, AccountModel, BillModel, CloseItemModel, ClosePeriodModel, TransactionModel, ReconciliationModel];
 
-export async function clearDatabase() {
-  await Promise.all(MODELS.map((m) => m.collection.deleteMany({})));
+/**
+ * Deletes every document from the app's collections. Collections and their indexes stay in place;
+ * nothing is dropped. With `keepHousehold`, household records are kept so the (stub) session
+ * still signs in to an empty household. Returns the number of documents deleted per collection.
+ */
+export async function clearDatabase({ keepHousehold = false }: { keepHousehold?: boolean } = {}): Promise<Record<string, number>> {
+  const models = keepHousehold ? MODELS.filter((m) => m !== Household) : MODELS;
+  const results = await Promise.all(models.map(async (m) => [m.collection.collectionName, (await m.collection.deleteMany({})).deletedCount] as const));
+  return Object.fromEntries(results);
 }
 
 export interface SeedResult {
@@ -21,7 +28,7 @@ export interface SeedResult {
   ids: Record<string, string>;
 }
 
-export async function seedDatabase(data: FixtureData = createFixtures()): Promise<SeedResult> {
+export async function seedDatabase(data: SampleData = createSampleData()): Promise<SeedResult> {
   await clearDatabase();
   const ids = new Map<string, Types.ObjectId>();
   const id = (key: string) => {

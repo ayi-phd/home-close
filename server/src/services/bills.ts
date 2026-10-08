@@ -1,6 +1,6 @@
 import { validationError, notFound } from '../errors.ts';
 import { BillModel } from '../models/bill.ts';
-import type { Bill, BillInput } from '../types.ts';
+import type { Bill, BillInput } from '@home-close/shared';
 import type { Ctx } from './context.ts';
 import { toBill, type StoredBill } from './mappers.ts';
 import { findAccount, loadBills } from './store.ts';

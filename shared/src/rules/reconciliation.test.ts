@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { createFixtures } from '../fixtures';
-import { bookBalance, canSignOff, clearedBalance, summarize } from './reconciliation';
+import { createSampleData } from '../sample.ts';
+import { bookBalance, canSignOff, clearedBalance, summarize } from './reconciliation.ts';
 
-const { accounts, transactions } = createFixtures();
+const { accounts, transactions } = createSampleData();
 const chase = accounts.find((a) => a.id === 'chk')!;
 
 describe('reconciliation', () => {

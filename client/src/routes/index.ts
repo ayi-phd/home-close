@@ -1,5 +1,5 @@
 import { redirect, type RouteObject } from 'react-router';
-import Root, { ErrorBoundary } from './root/route';
+import Root, { ErrorBoundary, HydrateFallback } from './root/route';
 import * as login from './login/route';
 import * as signup from './signup/route';
 import * as shell from './shell/route';
@@ -22,6 +22,7 @@ export const routes: RouteObject[] = [
     path: '/',
     Component: Root,
     ErrorBoundary,
+    HydrateFallback,
     children: [
       { path: 'login', action: login.action, Component: login.default },
       { path: 'signup', loader: signup.loader, action: signup.action, Component: signup.default },

@@ -1,5 +1,5 @@
 import { AccountModel } from '../models/account.ts';
-import type { Account, AccountInput } from '../types.ts';
+import type { Account, AccountInput } from '@home-close/shared';
 import type { Ctx } from './context.ts';
 import { toAccount, type StoredAccount } from './mappers.ts';
 import { loadAccounts, loadReconciliations, loadTransactions, requireAccount } from './store.ts';

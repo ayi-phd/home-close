@@ -2,8 +2,8 @@
  * Bill cycle rules: which months a bill is billed in, its statement date and its due date.
  * A close period contains the bills whose due date falls in that month.
  */
-import type { Bill, IsoDate, Period } from '../../types';
-import { addDays, addMonths, clampedDate, parseIso, parsePeriod, periodOf } from '../../dates';
+import type { Bill, IsoDate, Period } from '../types.ts';
+import { addDays, addMonths, clampedDate, parseIso, parsePeriod, periodOf } from '../dates.ts';
 
 type CycleBill = Pick<Bill, 'frequency' | 'cycleAnchorMonth' | 'statementDay' | 'dueRule'>;
 

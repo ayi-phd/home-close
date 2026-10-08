@@ -1,7 +1,7 @@
 /** Reconciliation: bank balance entry, sign-off at a $0.00 difference, reopen. */
 import { conflict } from '../errors.ts';
 import { ReconciliationModel } from '../models/reconciliation.ts';
-import type { Cents, IsoDate, Period, Reconciliation } from '../types.ts';
+import type { Cents, IsoDate, Period, Reconciliation } from '@home-close/shared';
 import type { Ctx } from './context.ts';
 import { canSignOff } from './domain/reconciliation.ts';
 import { toReconciliation, type StoredAccount, type StoredReconciliation } from './mappers.ts';

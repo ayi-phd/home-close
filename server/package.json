@@ -7,10 +7,11 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "node --env-file-if-exists=../.env --watch src/index.ts",
+    "dev": "node --conditions=source --env-file-if-exists=../.env --watch src/index.ts",
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
-    "seed": "node --env-file-if-exists=../.env src/seed/run.ts",
+    "seed": "node --conditions=source --env-file-if-exists=../.env src/seed/run.ts",
+    "db:clear": "node --conditions=source --env-file-if-exists=../.env src/seed/clear.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
@@ -29,6 +30,7 @@
     "vitest": "^5.0.3"
   },
   "dependencies": {
+    "@home-close/shared": "^0.0.0",
     "express": "^5.2.1",
     "mongoose": "^9.11.1"
   }

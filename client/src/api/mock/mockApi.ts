@@ -21,8 +21,18 @@ import type {
 } from '../types';
 import { isIsoDate, isPeriod, periodOf } from '../dates';
 import { createFixtures, type MockData, type StoredAccount, type StoredReconciliation } from './fixtures';
-import { applyPayment, applySchedule, applyStatement, buildItems, computeProgress, generateItem } from './services/close';
-import { bookBalance, canSignOff, clearedBalance, summarize } from './services/reconciliation';
+import {
+  applyPayment,
+  applySchedule,
+  applyStatement,
+  bookBalance,
+  buildItems,
+  canSignOff,
+  clearedBalance,
+  computeProgress,
+  generateItem,
+  summarize,
+} from '@home-close/shared';
 import {
   conflict,
   FieldErrors,

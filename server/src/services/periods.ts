@@ -4,7 +4,7 @@ import { conflict, notFound, validationError } from '../errors.ts';
 import { CloseItemModel } from '../models/closeItem.ts';
 import { ClosePeriodModel } from '../models/closePeriod.ts';
 import { TransactionModel } from '../models/transaction.ts';
-import type { CloseItem, ClosePeriod, PaymentInput, Period, StatementInput } from '../types.ts';
+import type { CloseItem, ClosePeriod, PaymentInput, Period, StatementInput } from '@home-close/shared';
 import { findBill } from './bills.ts';
 import type { Ctx } from './context.ts';
 import { applyPayment, applySchedule, applyStatement, buildItems, computeProgress, generateItem } from './domain/close.ts';

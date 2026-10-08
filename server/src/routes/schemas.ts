@@ -10,7 +10,7 @@ import type {
   PaymentInput,
   SignupInput,
   StatementInput,
-} from '../types.ts';
+} from '@home-close/shared';
 import { isIsoDate, isPeriod } from '../services/domain/dates.ts';
 import {
   asObject,

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { Bill } from '../../types';
-import { cycleDueIn, dueAfterStatement, isBillingMonth, nextCycleAfter } from './cycles';
+import type { Bill } from '../types.ts';
+import { cycleDueIn, dueAfterStatement, isBillingMonth, nextCycleAfter } from './cycles.ts';
 
 type CycleBill = Pick<Bill, 'frequency' | 'cycleAnchorMonth' | 'statementDay' | 'dueRule'>;
 

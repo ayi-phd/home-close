@@ -6,7 +6,7 @@ import { BillModel } from '../models/bill.ts';
 import { ClosePeriodModel } from '../models/closePeriod.ts';
 import { ReconciliationModel } from '../models/reconciliation.ts';
 import { TransactionModel } from '../models/transaction.ts';
-import type { IsoDate, Period, Transaction } from '../types.ts';
+import type { IsoDate, Period, Transaction } from '@home-close/shared';
 import type { Ctx } from './context.ts';
 import { periodOf } from './domain/dates.ts';
 import { toTransaction, type StoredAccount, type StoredBill, type StoredReconciliation, type StoredTransaction } from './mappers.ts';

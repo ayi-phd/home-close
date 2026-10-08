@@ -10,8 +10,8 @@ import type {
   Period,
   Reconciliation,
   StatementInput,
-} from '../../types';
-import { cycleDueIn, nextCycleAfter } from './cycles';
+} from '../types.ts';
+import { cycleDueIn, nextCycleAfter } from './cycles.ts';
 
 export const STATUS_ORDER = ['awaiting', 'entered', 'scheduled', 'paid'] as const;
 
