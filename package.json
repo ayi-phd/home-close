@@ -1,10 +1,17 @@
 {
   "name": "home-close",
   "private": true,
-  "workspaces": ["client"],
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "dev": "npm run dev -w client",
-    "build": "npm run build -w client",
+    "dev:server": "npm run dev -w server",
+    "build": "npm run build --workspaces --if-present",
+    "seed": "npm run seed -w server",
+    "db:up": "docker compose up -d mongo",
+    "db:down": "docker compose down",
     "lint": "npm run lint --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
